@@ -1,0 +1,28 @@
+// jsconfig.json
+{
+  "compilerOptions": {
+    "baseUrl": "./", // 设置解析非相对模块名的基准目录
+    "paths": {
+      "@/*": ["./src/*"] // 配置 @ 别名指向 src 目录
+    },
+    // 以下是针对 Vue 3 (特别是使用 <script setup>) 和现代 JavaScript 项目推荐的配置
+    "jsx": "preserve", // 保留 JSX，用于支持 .vue 文件中的模板解析
+    "target": "esnext", // 编译目标 JS 版本，通常是 ESNext
+    "module": "esnext", // 模块化方案，使用 ES Modules
+    "moduleResolution": "node", // 模块解析策略，模拟 Node.js 模块解析
+    "strict": false, // 可以设置为 true 以启用更严格的类型检查，但可能需要更多配置
+    "esModuleInterop": true, // 允许 CommonJS 和 ES Modules 之间的互操作性
+    "forceConsistentCasingInFileNames": true, // 强制文件名大小写一致
+    "skipLibCheck": true, // 跳过对声明文件的类型检查，提高性能
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost"] // 运行时环境库
+  },
+  // 包含和排除的文件模式
+  "include": [
+    "src/**/*.js",
+    "src/**/*.jsx",
+    "src/**/*.vue",
+    "src/**/*.ts", // 即使是 JS 项目，保留这个也可以让 VS Code 处理一些内置的 TS 类型
+    "src/**/*.tsx"
+  ],
+  "exclude": ["node_modules", "dist"] // 排除不必要的文件
+}
